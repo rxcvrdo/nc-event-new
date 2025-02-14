@@ -1,4 +1,5 @@
 const express = require('express');
+const registrationRoutes = require('./routes/registrations');
 const errorHandler = require('./middleware/errorHandler');
 const { query } = require('./db'); // Import the query function
 require('dotenv').config();
@@ -11,6 +12,7 @@ const eventRoutes = require('./routes/events');
 
 app.use('/api/users', userRoutes);
 app.use('/api/events', eventRoutes);
+app.use('/api/registrations', registrationRoutes);
 
 // Test Route to Check Database Connection
 app.get('/api/test', async (req, res) => {
